@@ -34,7 +34,7 @@ set termencoding=utf-8
 set fileformat=unix
 set encoding=utf-8
 
-set background=dark793H1
+set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
 set t_Co=256
@@ -50,7 +50,7 @@ set autoindent
 
 set smartindent
 
-set nobackup793H1
+set nobackup
 set nowritebackup
 set noswapfile
 
