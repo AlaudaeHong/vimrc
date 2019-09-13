@@ -27,7 +27,6 @@ set number
 set ruler
 set history=1000
 
-
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
 set laststatus=2
 syntax on
@@ -58,11 +57,8 @@ set nowritebackup
 set noswapfile
 
 set tabstop=4
-
 set expandtab
-
 set softtabstop=4
-
 set shiftwidth=4
 
 set showmatch
@@ -80,7 +76,6 @@ filetype indent on
 set cindent
 set completeopt=longest,menu
 
-
 set autowrite
 set clipboard=unnamed
 set autoread
@@ -96,7 +91,7 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 " use ctrl n to open NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
-" Indent Guide
+" Indent Guide configuration
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_guide_size = 1
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=darkgrey
