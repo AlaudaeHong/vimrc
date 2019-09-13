@@ -1,6 +1,8 @@
 " Setup Vundle git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 " run vim +PluginInstall +qall
 
+"Remember to use :retab to convert tab to 4 spaces
+
 " vim plugin manager
 set nocompatible
 filetype off
@@ -14,6 +16,7 @@ Plugin 'scrooloose/nerdtree'                " file/directory treee
 Plugin 'scrooloose/nerdcommenter'           " code commenter
 Plugin 'kien/ctrlp.vim'                     " Fuzzy file, buffer, mru, tag, etc finder
 Plugin 'altercation/vim-colors-solarized'   " Colorscheme solarized
+Plugin 'nathanaelkane/vim-indent-guides'
 
 call vundle#end()            " required
 filetype plugin indent on    " required 
@@ -56,6 +59,8 @@ set noswapfile
 
 set tabstop=4
 
+set expandtab
+
 set softtabstop=4
 
 set shiftwidth=4
@@ -91,3 +96,8 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 " use ctrl n to open NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
+" Indent Guide
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_guide_size = 1
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=darkgrey
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=lightgrey
