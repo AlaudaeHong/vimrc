@@ -9,6 +9,11 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+"For Windows
+"set rtp+=$USERPROFILE/.vim/bundle/Vundle.vim/
+"call vundle#begin('$USERPROFILE/.vim/bundle/')
+
+
 " add your plugin here
 
 Plugin 'VundleVim/Vundle.vim'               " required
@@ -96,5 +101,5 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=darkgrey
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=lightgrey
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   guibg=darkgrey   ctermbg=darkgrey
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  guibg=lightgrey ctermbg=lightgrey
