@@ -1,9 +1,3 @@
-" Setup Vundle git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-" run vim +PluginInstall +qall
-
-"Remember to use :retab to convert tab to 4 spaces
-
-" vim plugin manager
 set nocompatible
 filetype off
 
