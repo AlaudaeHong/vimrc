@@ -1,7 +1,28 @@
+" ----------------------------   Introduction   ----------------------------
+
 " Setup Vundle git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 " run vim +PluginInstall +qall
 
 "Remember to use :retab to convert tab to 4 spaces
+
+"                               *Dependency*
+"1. ctag:
+"       Mac:    brew install ctag
+"       Ubuntu: sudo apt-get install ctag
+"
+"                               *Cheatsheet*
+"1. nerdtree --- A tree explorer plugin for navigating the filesystem
+"       1.1 crtl-n to toggle the plugin
+"
+"2. nerdcommenter --- Comment functions so powerful—no comment necessary.
+"       2.1 \cc to comment out a segment
+"       2.2 \cu to uncomment a segment
+"
+"3. tagbar --- a class outline viewer for Vim
+"       3.1 TagbarToggle to toggle the function
+
+
+"----------------------------------------------------------------------------
 
 " vim plugin manager
 set nocompatible
@@ -15,13 +36,13 @@ call vundle#begin()
 
 
 " add your plugin here
-
 Plugin 'VundleVim/Vundle.vim'               " required
 Plugin 'scrooloose/nerdtree'                " file/directory treee
 Plugin 'scrooloose/nerdcommenter'           " code commenter
 Plugin 'kien/ctrlp.vim'                     " Fuzzy file, buffer, mru, tag, etc finder
 Plugin 'altercation/vim-colors-solarized'   " Colorscheme solarized
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'majutsushi/tagbar'                  "a class outline viewer for Vim
 
 call vundle#end()            " required
 filetype plugin indent on    " required 
@@ -43,8 +64,8 @@ set encoding=utf-8
 
 set background=dark
 let g:solarized_termcolors=256
-set t_Co=256
 let g:solarized_termtrans = 1
+set t_Co=256
 colorscheme solarized
 
 set wildmenu
@@ -96,12 +117,17 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 
 " use ctrl n to open NERDTree
 map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeWinPos = "right"
 
 " Indent Guide configuration
-" '\ig' to toggle the plug
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   guibg=darkgrey   ctermbg=darkgrey
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  guibg=lightgrey ctermbg=lightgrey
+
+"Tagbar
+let tagbar_left=1
+let tagbar_width=32
+let g:tagbar_compact=1
