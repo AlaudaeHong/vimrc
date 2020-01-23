@@ -43,8 +43,9 @@ set encoding=utf-8
 
 set background=dark
 let g:solarized_termcolors=256
-colorscheme solarized
 set t_Co=256
+let g:solarized_termtrans = 1
+colorscheme solarized
 
 set wildmenu
 
