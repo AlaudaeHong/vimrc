@@ -51,6 +51,11 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " Shortcut
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
 map <C-t> :TagbarToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
 
