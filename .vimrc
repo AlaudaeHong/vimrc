@@ -3,7 +3,7 @@
 " Setup Vundle git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 " run vim +PluginInstall +qall
 
-"Remember to use :retab to convert tab to 4 spaces
+" Remember to use :retab to convert tab to 4 spaces
 
 "                               *Dependency*
 "1. ctag:
@@ -19,7 +19,7 @@
 "       2.2 \cu to uncomment a segment
 "
 "3. tagbar --- a class outline viewer for Vim
-"       3.1 TagbarToggle to toggle the function
+"       3.1 TagbarToggle<crtl-tb> to toggle the function
 
 
 "----------------------------------------------------------------------------
@@ -40,12 +40,19 @@ Plugin 'VundleVim/Vundle.vim'               " required
 Plugin 'scrooloose/nerdtree'                " file/directory treee
 Plugin 'scrooloose/nerdcommenter'           " code commenter
 Plugin 'kien/ctrlp.vim'                     " Fuzzy file, buffer, mru, tag, etc finder
-Plugin 'altercation/vim-colors-solarized'   " Colorscheme solarized
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'majutsushi/tagbar'                  "a class outline viewer for Vim
+Plugin 'majutsushi/tagbar'                  " a class outline viewer for Vim
+Plugin 'morhetz/gruvbox'                    " gruvbox Theme
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'ycm-core/YouCompleteMe'
 
 call vundle#end()            " required
-filetype plugin indent on    " required 
+filetype plugin indent on    " required
+
+" Shortcut
+map <C-t> :TagbarToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 
 " vim basic configuration
 set number
@@ -63,10 +70,8 @@ set fileformat=unix
 set encoding=utf-8
 
 set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans = 1
 set t_Co=256
-colorscheme solarized
+colorscheme gruvbox
 
 set wildmenu
 
@@ -109,15 +114,13 @@ set autoread
 set scrolloff=3
 
 " NERDTree configuration
+let g:NERDTreeWinPos = "right"
+
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-
-" use ctrl n to open NERDTree
-map <C-n> :NERDTreeToggle<CR>
-let g:NERDTreeWinPos = "right"
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Indent Guide configuration
 let g:indent_guides_enable_on_vim_startup = 1
@@ -131,3 +134,9 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  guibg=lightgrey ctermbg=lig
 let tagbar_left=1
 let tagbar_width=32
 let g:tagbar_compact=1
+
+"Airline
+let g:airline_left_sep='>'
+let g:airline_right_sep='<'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
